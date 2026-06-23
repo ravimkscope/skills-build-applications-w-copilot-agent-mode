@@ -1,0 +1,139 @@
+.app-shell {
+  min-height: 100vh;
+  background: #f6f8fb;
+}
+
+.navbar-brand {
+  color: #172033;
+}
+
+.nav-link {
+  border-radius: 6px;
+  color: #4f5f73;
+  padding-inline: 0.75rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: #e9eef6;
+  color: #172033;
+}
+
+.app-main {
+  max-width: 1180px;
+  padding: 24px;
+}
+
+.api-status {
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #d9e0ea;
+  border-radius: 8px;
+  color: #4f5f73;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  text-align: left;
+}
+
+.api-status span {
+  background: #17324d;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 2px 8px;
+}
+
+.api-status strong {
+  color: #172033;
+  font-size: 0.92rem;
+  overflow-wrap: anywhere;
+}
+
+.api-status small {
+  color: #7a4b12;
+}
+
+.data-view {
+  background: #ffffff;
+  border: 1px solid #d9e0ea;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: left;
+}
+
+.view-header {
+  align-items: flex-start;
+  border-bottom: 1px solid #d9e0ea;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  padding: 22px 24px;
+}
+
+.view-header h1 {
+  color: #172033;
+  font-size: 1.65rem;
+  line-height: 1.2;
+  margin: 0 0 6px;
+}
+
+.view-header p {
+  color: #607086;
+  margin: 0;
+}
+
+.endpoint-label {
+  background: #f1f4f8;
+  border: 1px solid #d9e0ea;
+  border-radius: 6px;
+  color: #4f5f73;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  max-width: 470px;
+  overflow-wrap: anywhere;
+  padding: 7px 9px;
+}
+
+.data-table-wrap {
+  min-height: 180px;
+}
+
+.table {
+  --bs-table-hover-bg: #f7f9fc;
+}
+
+.table thead th {
+  background: #f1f4f8;
+  color: #36465a;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+}
+
+.empty-state {
+  color: #607086;
+  padding: 22px 24px;
+}
+
+.alert {
+  border-radius: 0;
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .app-main {
+    padding: 16px;
+  }
+
+  .view-header {
+    flex-direction: column;
+    padding: 18px;
+  }
+
+  .endpoint-label {
+    max-width: 100%;
+  }
+}
