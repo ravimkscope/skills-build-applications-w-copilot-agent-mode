@@ -1,5 +1,5 @@
 import express from 'express';
-import { connectDatabase, mongoUri } from './database';
+import { connectDatabase, mongoUri } from './config/database';
 import activitiesRouter from './routes/activities';
 import leaderboardRouter from './routes/leaderboard';
 import teamsRouter from './routes/teams';
