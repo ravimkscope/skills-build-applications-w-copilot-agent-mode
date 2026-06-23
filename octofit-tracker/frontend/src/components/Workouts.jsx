@@ -1,9 +1,14 @@
 import ResourceTable from './ResourceTable'
 
+const workoutsApiEndpoint = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/workouts/`
+  : 'http://localhost:8000/api/workouts/'
+
 function Workouts() {
   return (
     <ResourceTable
       resource="workouts"
+      endpoint={workoutsApiEndpoint}
       title="Workouts"
       description="Suggested workouts matched to common training goals."
       columns={[

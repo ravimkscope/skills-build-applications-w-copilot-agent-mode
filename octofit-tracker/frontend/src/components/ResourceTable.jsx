@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { fetchCollection, getApiUrl } from '../api'
+import { fetchCollection } from '../api'
 
-function ResourceTable({ resource, title, description, columns }) {
+function ResourceTable({ resource, title, description, endpoint, columns }) {
   const [items, setItems] = useState([])
   const [status, setStatus] = useState('loading')
   const [error, setError] = useState('')
@@ -12,7 +12,7 @@ function ResourceTable({ resource, title, description, columns }) {
     async function loadItems() {
       try {
         setStatus('loading')
-        const records = await fetchCollection(resource)
+        const records = await fetchCollection(resource, endpoint)
 
         if (isMounted) {
           setItems(records)
@@ -31,7 +31,7 @@ function ResourceTable({ resource, title, description, columns }) {
     return () => {
       isMounted = false
     }
-  }, [resource])
+  }, [endpoint, resource])
 
   return (
     <section className="data-view" aria-labelledby={`${resource}-heading`}>
@@ -40,7 +40,7 @@ function ResourceTable({ resource, title, description, columns }) {
           <h1 id={`${resource}-heading`}>{title}</h1>
           <p>{description}</p>
         </div>
-        <span className="endpoint-label">{getApiUrl(resource)}</span>
+        <span className="endpoint-label">{endpoint}</span>
       </div>
 
       {status === 'loading' && <div className="alert alert-info">Loading {title.toLowerCase()}...</div>}
