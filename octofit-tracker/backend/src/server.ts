@@ -8,6 +8,7 @@ import workoutsRouter from './routes/workouts';
 
 const app = express();
 const port = Number(process.env.PORT ?? 8000);
+const host = '0.0.0.0';
 
 app.use(express.json());
 
@@ -43,7 +44,7 @@ app.use((error: Error, _req: express.Request, res: express.Response, _next: expr
 async function start(): Promise<void> {
   try {
     await connectDatabase();
-    app.listen(port, () => {
+    app.listen(port, host, () => {
       // Keep startup details explicit for quick validation in local/devcontainer.
       console.log(`OctoFit backend listening on http://localhost:${port}`);
       console.log(`MongoDB connection URI: ${mongoUri}`);

@@ -12,6 +12,7 @@ const users_1 = __importDefault(require("./routes/users"));
 const workouts_1 = __importDefault(require("./routes/workouts"));
 const app = (0, express_1.default)();
 const port = Number(process.env.PORT ?? 8000);
+const host = '0.0.0.0';
 app.use(express_1.default.json());
 app.get('/api/health', (_req, res) => {
     res.json({ status: 'ok' });
@@ -40,7 +41,7 @@ app.use((error, _req, res, _next) => {
 async function start() {
     try {
         await (0, database_1.connectDatabase)();
-        app.listen(port, () => {
+        app.listen(port, host, () => {
             // Keep startup details explicit for quick validation in local/devcontainer.
             console.log(`OctoFit backend listening on http://localhost:${port}`);
             console.log(`MongoDB connection URI: ${database_1.mongoUri}`);
